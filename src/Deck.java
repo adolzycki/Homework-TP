@@ -4,7 +4,7 @@ import java.util.Collections;
 public class Deck {
 
     private int size;
-    ArrayList<Card> deck = new ArrayList<>();
+    ArrayList<Card> deck = null;
 
     Deck(int size) throws Exception {
 
@@ -13,11 +13,17 @@ public class Deck {
         this.size = size;
         deckInit();
     }
+    Deck(Deck another) {
+        this.size = another.size;
+        this.deck = new ArrayList<>(another.deck);
+
+    }
 
     private void deckInit() {
 
         int i = 0;
         int j = 14;
+        deck = new ArrayList<>();
         while(i < size) {
             deck.add(new Card(j,"Clubs"));
             deck.add(new Card(j,"Hearts"));

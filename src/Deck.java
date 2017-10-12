@@ -6,6 +6,11 @@ public class Deck {
     private int size;
     ArrayList<Card> deck = null;
 
+    /**
+     * Main constructor
+     * @param size size of deck
+     * @throws Exception when wrong size
+     */
     Deck(int size) throws Exception {
 
         if(size != 24 && size != 32 && size != 52)
@@ -13,12 +18,20 @@ public class Deck {
         this.size = size;
         deckInit();
     }
+
+    /**
+     * Constructor
+     * @param another construct deck based on another one
+     */
     Deck(Deck another) {
         this.size = another.size;
         this.deck = new ArrayList<>(another.deck);
 
     }
 
+    /**
+     * Make deck
+     */
     private void deckInit() {
 
         int i = 0;
@@ -34,15 +47,25 @@ public class Deck {
         }
     }
 
+    /**
+     * Get card
+     * @return one card from deck
+     */
     String getCard() {
         return deck.get(deck.size()-1).toString();
     }
 
-     void shuffle() {
+    /**
+     * Shuffle deck
+     */
+    void shuffle() {
         Collections.shuffle(deck);
     }
 
-     void sort() {
+    /**
+     * Sort deck
+     */
+    void sort() {
         Collections.sort(deck);
     }
 

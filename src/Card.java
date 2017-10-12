@@ -1,9 +1,14 @@
 public class Card implements Comparable<Card> {
 
-    String name;
-    String suit;
-    int value;
+    private String name;
+    private String suit;
+    private int value;
 
+    /**
+     * Make new card
+     * @param value value of card
+     * @param suit color
+     */
     Card(int value,String suit) {
         this.value = value;
         this.suit = suit;
@@ -38,17 +43,22 @@ public class Card implements Comparable<Card> {
         }
     }
 
+    /**
+     * Card to string
+     * @return Card in string
+     */
     @Override
     public String toString() {
         return name + " of " + suit;
     }
 
+    /**
+     * Compare cards
+     * @param card another card
+     * @return -1 or 1
+     */
     @Override
     public int compareTo(Card card) {
-        if(this.value > card.value)
-            return 1;
-        if(this.value < card.value)
-            return -1;
-        return 0;
+        return Integer.compare(this.value, card.value);
     }
 }
